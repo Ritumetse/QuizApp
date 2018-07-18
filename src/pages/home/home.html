@@ -1,14 +1,301 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Quizz App
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content  padding  class="home">
+       
+            <label for ="Categories">Choose your Category</label>
+  <select [(ngModel)]="SelectedQuizz">
+
+    <option *ngFor= "let a of Categories,let i=index ">{{Categories[i]}}</option>
+    </select>
+
+<div *ngIf= "SelectedQuizz==='sports'">
+        <img src ="./assets/imgs/sporting.jpg">
+       
+ <ion-list radio-group  [(ngModel)] ="cheifs" >
+        <ion-label>Who is the Former Coach of kaizer chiefs</ion-label>
+          <ion-item>
+              <ion-label>Serbian punts</ion-label>
+              <ion-radio value="serbian" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+          <ion-label> Steve  Khompela</ion-label>
+          <ion-radio value=" Khompela" checked></ion-radio>
+         </ion-item>
+      
+         <ion-item>
+        <ion-label> Staurt Baxter</ion-label>
+         <ion-radio value=" Baxter" checked></ion-radio>
+         </ion-item>
+    </ion-list>
+
+    
+        <ion-list radio-group [(ngModel)] ="captain" >
+        <ion-label>Who is the Captain of Proteas</ion-label>
+       
+          <ion-item>
+              <ion-label>hashim Amla</ion-label>
+              <ion-radio value=" Amla" checked></ion-radio>
+           
+          </ion-item>
+          
+
+            <ion-item>
+            <ion-label> A.B devillers</ion-label>
+            <ion-radio value=" devillers" checked></ion-radio>
+        
+           </ion-item>
+       
+           <ion-item>
+          <ion-label> faf Du Plessis</ion-label>
+          <ion-radio value="Faf Du Plessis" checked></ion-radio>
+  
+           </ion-item>
+        </ion-list>
+    
+
+  
+        <ion-list radio-group [(ngModel)] ="Coach" >
+        <ion-label>Who is the Coach of SAFA</ion-label>
+       
+          <ion-item>
+              <ion-label>Danny Jordan</ion-label>
+              <ion-radio value="Danny" checked></ion-radio>
+          </ion-item>
+
+        
+     
+            <ion-item>
+            <ion-label>Pitso Mosimane </ion-label>
+            <ion-radio value="Pitso" checked></ion-radio>
+          
+           </ion-item>
+       
+           <ion-item>
+          <ion-label>Patrice Motsepe</ion-label>
+          <ion-radio value="Motsepe" checked></ion-radio>
+      
+         </ion-item>
+         
+        </ion-list>
+
+    
+    
+        <ion-list radio-group [(ngModel)] ="GoalKepper" >
+     <ion-label>Who is the GoalKepper of Bafana Bafana</ion-label>
+ 
+       <ion-item>
+          <ion-label>Itumeleng Khune</ion-label>
+          <ion-radio value="Khune" checked></ion-radio>
+       </ion-item>
+
+        <ion-item>
+        <ion-label>Moeneeb josephs</ion-label>
+        <ion-radio value="Moeneeb" checked></ion-radio>
+       </ion-item>
+     </ion-list>
+
+     <ion-list radio-group [(ngModel)] ="lateGoalKepper" >
+        <ion-label>Who is the  late GoalKepper of Orlando Pirates</ion-label>
+          <ion-item>
+             <ion-label>Senzo Meyiwa</ion-label>
+             <ion-radio value="Meyiwa" checked></ion-radio>
+          </ion-item>
+   
+           <ion-item>
+           <ion-label>Moeneeb josephs</ion-label>
+           <ion-radio value="Moeneeb" checked></ion-radio>
+          </ion-item>
+        </ion-list>
+
+     <button ion-button color="danger"(click)="scoreMarks()">Score</button> 
+     <p> Score: {{totalSportMarks}}</p>
+</div>
+    
+  <div *ngIf ="SelectedQuizz==='politics'">
+        <img src ="./assets/imgs/politic.png">
+
+        <ion-list radio-group [(ngModel)] ="Leader" >
+      <ion-label>Who is the leader of Democratic Alliance</ion-label>
+          <ion-item>
+              <ion-label>Hellen Zille</ion-label>
+              <ion-radio value="Hellen" checked></ion-radio>
+               </ion-item>
+         
+               <ion-item>
+               <ion-label>Mmusi Maimane </ion-label>
+               <ion-radio value="Mmusi" checked></ion-radio>
+              </ion-item>
+        
+      </ion-list>
+           
+      <ion-list radio-group [(ngModel)]=" Commander" >
+      <ion-label>Who is the Chief commander of EFF</ion-label>
+        <ion-item>
+            <ion-label>Jullius Sello Malema</ion-label>
+            <ion-radio value="Jullius"></ion-radio>
+       
+             </ion-item>
+       
+             <ion-item>
+             <ion-label>jacob Zuma</ion-label>
+             <ion-radio value="Jacob "></ion-radio>
+            
+            </ion-item>
+    </ion-list>
+      
+    <ion-list radio-group [(ngModel)] ="President" >
+    <ion-label>Who is the President of ANC</ion-label>
+        <ion-item>
+            <ion-label>Jacob Zuma</ion-label>
+            <ion-radio value=" Zuma"></ion-radio>
+         
+             </ion-item>
+       
+             <ion-item>
+             <ion-label>Cyril Ramaphosa </ion-label>
+             <ion-radio value="Ramaphosa"></ion-radio>
+             
+            </ion-item>
+       
+    </ion-list>
+
+    <ion-list radio-group [(ngModel)] ="FPresident" >
+
+    <ion-label>Who was first President of ANc</ion-label> 
+        <ion-item>
+            <ion-label>Nelson Mandela</ion-label>
+            <ion-radio value="Mandela"></ion-radio>
+     
+             </ion-item>
+
+             <ion-item>
+                <ion-label>Thabo Mbheki</ion-label>
+                <ion-radio value="Mbheki"></ion-radio>
+                
+              </ion-item>
+          
+     </ion-list>
+
+     <ion-list radio-group [(ngModel)] ="ChiefLeader" >
+     <ion-label> Which South African political party is led by Chief Buthelezi?</ion-label> 
+        <ion-item>
+            <ion-label>ikatha Freedom Party</ion-label>
+            <ion-radio value="IFP"></ion-radio>
+     
+             </ion-item>
+
+             <ion-item>
+                <ion-label>National Freedom Party</ion-label>
+                <ion-radio value="NFP"></ion-radio>
+              </ion-item>
+              
+             <ion-item>
+                    <ion-label>Democratic Alliance</ion-label>
+                    <ion-radio value="DA"></ion-radio>
+                  </ion-item>
+                  
+          
+     </ion-list>
+    
+     <button ion-button color="danger"(click)="PoliticsScore()">Score</button> 
+     <p> Score: {{totalPoliticsMarks}}</p>
+  
+
+  </div>
+  <div *ngIf ="SelectedQuizz==='music'">
+        <img src ="./assets/imgs/music.jpg">
+        <ion-list radio-group [(ngModel)] ="BET">
+
+      <ion-label>who won the BET Award 2018 for viewer's choice </ion-label>
+
+    <ion-item>
+        <ion-label>Cardi B</ion-label>
+        <ion-radio value="Cardi"></ion-radio>
+        
+         </ion-item>
+   
+         <ion-item>
+         <ion-label>Nicky Minaj</ion-label>
+         <ion-radio value="Nicky"></ion-radio>
+       
+        </ion-item>
+   
+        <ion-item>
+            <ion-label>SZA</ion-label>
+            <ion-radio value="SZA"></ion-radio>
+          
+        </ion-item>
+      
+</ion-list>
+
+<ion-list radio-group [(ngModel)] ="Singer">
+      
+     <ion-label>Which US singer released a 2000 album entitled ‘Music’?</ion-label>
+    <ion-item>
+        <ion-label>Madonna</ion-label>
+        <ion-radio value="Madonna"></ion-radio>
+   
+     </ion-item>
+  
+     <ion-item>
+        <ion-label>Cherr</ion-label>
+        <ion-radio value ="Cherr"></ion-radio>
+  
+    </ion-item>
+</ion-list>
+<ion-list radio-group [(ngModel)] ="Soul">
+    <ion-label>Which artist's sweet soul song "Peace Ballad" (1992) helped foster an atmosphere of unity ?
+        </ion-label>
+
+            <ion-item>
+                    <ion-label>Sello Chicco Twala</ion-label>
+                    <ion-radio value="Sello"></ion-radio>
+               
+                 </ion-item>
+              
+                 <ion-item>
+                    <ion-label>Freddy Gwala</ion-label>
+                    <ion-radio value ="freddy "></ion-radio>
+              
+                </ion-item>
+    </ion-list>
+    <ion-list radio-group [(ngModel)] ="MamaAfrica">
+        <ion-label>Which African artist, known as Mama Africa</ion-label>
+    
+                <ion-item>
+                        <ion-label>Yvonne Chaka Chaka</ion-label>
+                        <ion-radio value="Yvonne "></ion-radio>
+                   
+                     </ion-item>
+                  
+                     <ion-item>
+                        <ion-label>Merriam Makeba</ion-label>
+                        <ion-radio value ="Merriam"></ion-radio>
+                    </ion-item>
+        </ion-list>
+
+        <ion-list radio-group [(ngModel)] ="Group">
+            <ion-label>which  group won the fifth award at the 2018 grammy? </ion-label>
+        
+                    <ion-item>
+                            <ion-label>LadySmith Black Mambaso</ion-label>
+                            <ion-radio value="Mambaso"></ion-radio>
+                       
+                         </ion-item>
+                      
+                         <ion-item>
+                            <ion-label>Bongo Maffin</ion-label>
+                            <ion-radio value ="Maffin"></ion-radio>
+                        </ion-item>
+            </ion-list>   
+            <button ion-button color="danger"(click)="MusicScore()">Score</button> 
+            <p> Score: {{totalMusicMarks}}</p>
+  </div>
+
 </ion-content>
